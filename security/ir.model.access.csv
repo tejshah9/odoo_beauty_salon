@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_beauty_customer_user,beauty.customer.user,model_beauty_customer,base.group_user,1,1,1,0
+access_beauty_customer_manager,beauty.customer.manager,model_beauty_customer,base.group_system,1,1,1,1
+access_beauty_service_user,beauty.service.user,model_beauty_service,base.group_user,1,1,1,0
+access_beauty_service_manager,beauty.service.manager,model_beauty_service,base.group_system,1,1,1,1
+access_beauty_package_user,beauty.package.user,model_beauty_package,base.group_user,1,1,1,0
+access_beauty_package_manager,beauty.package.manager,model_beauty_package,base.group_system,1,1,1,1
+access_beauty_appointment_user,beauty.appointment.user,model_beauty_appointment,base.group_user,1,1,1,0
+access_beauty_appointment_manager,beauty.appointment.manager,model_beauty_appointment,base.group_system,1,1,1,1
+access_beauty_staff_user,beauty.staff.user,model_beauty_staff,base.group_user,1,1,1,0
+access_beauty_staff_manager,beauty.staff.manager,model_beauty_staff,base.group_system,1,1,1,1

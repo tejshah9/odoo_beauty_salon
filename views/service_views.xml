@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Service Form View -->
+    <record id="view_beauty_service_form" model="ir.ui.view">
+        <field name="name">beauty.service.form</field>
+        <field name="model">beauty.service</field>
+        <field name="arch" type="xml">
+            <form string="Service">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Service Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category"/>
+                            <field name="duration" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="price"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder="Detailed description of the service..."/>
+                        </page>
+                        <page string="Included in Packages">
+                            <field name="package_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="price"/>
+                                    <field name="duration" widget="float_time"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Service Tree View -->
+    <record id="view_beauty_service_list" model="ir.ui.view">
+        <field name="name">beauty.service.list</field>
+        <field name="model">beauty.service</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list string="Services">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="duration" widget="float_time"/>
+                <field name="price"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Service Search View -->
+    <record id="view_beauty_service_search" model="ir.ui.view">
+        <field name="name">beauty.service.search</field>
+        <field name="model">beauty.service</field>
+        <field name="arch" type="xml">
+            <search string="Services">
+                <field name="name"/>
+                <field name="category"/>
+                <separator/>
+                <filter string="Hair" name="hair" domain="[('category', '=', 'hair')]"/>
+                <filter string="Face" name="face" domain="[('category', '=', 'face')]"/>
+                <filter string="Nails" name="nails" domain="[('category', '=', 'nails')]"/>
+                <filter string="Body" name="body" domain="[('category', '=', 'body')]"/>
+                <filter string="Other" name="other" domain="[('category', '=', 'other')]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_by_category" context="{'group_by': 'category'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Service Action Window -->
+    <record id="action_beauty_service" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">beauty.service</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_beauty_service_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first service!
+            </p>
+        </field>
+    </record>
+
+</odoo>

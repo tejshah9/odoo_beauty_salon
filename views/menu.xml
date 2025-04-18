@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_beauty_salon_root"
+              name="Beauty Salon"
+              web_icon="beauty_salon,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Appointments Menu -->
+    <menuitem id="menu_beauty_salon_appointments"
+              name="Appointments"
+              parent="menu_beauty_salon_root"
+              action="action_beauty_appointment"
+              sequence="10"/>
+
+    <!-- Customers Menu -->
+    <menuitem id="menu_beauty_salon_customers"
+              name="Customers"
+              parent="menu_beauty_salon_root"
+              action="action_beauty_customer"
+              sequence="20"/>
+
+    <!-- Services Menu -->
+    <menuitem id="menu_beauty_salon_services"
+              name="Services"
+              parent="menu_beauty_salon_root"
+              action="action_beauty_service"
+              sequence="30"/>
+
+    <!-- Packages Menu -->
+    <menuitem id="menu_beauty_salon_packages"
+              name="Packages"
+              parent="menu_beauty_salon_root"
+              action="action_beauty_package"
+              sequence="40"/>
+
+    <!-- Staff Menu -->
+    <menuitem id="menu_beauty_salon_staff"
+              name="Staff"
+              parent="menu_beauty_salon_root"
+              action="action_beauty_staff"
+              sequence="50"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_beauty_salon_config"
+              name="Configuration"
+              parent="menu_beauty_salon_root"
+              sequence="100"/>
+</odoo>

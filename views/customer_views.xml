@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View for BeautySalonCustomer -->
+        <record id="view_beauty_customer_form" model="ir.ui.view">
+            <field name="name">beauty.customer.form</field>
+            <field name="model">beauty.customer</field>
+            <field name="arch" type="xml">
+                <form string="Beauty Salon Customer">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="date_of_birth"/>
+                            <field name="gender"/>
+                            <field name="notes"/>
+                        </group>
+                        
+                        <!-- Appointments Section -->
+                        <group>
+                            <field name="appointment_count" readonly="1"/>
+                            <field name="appointment_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="state"/>
+                                    <field name="total_price"/>
+                                </list>
+                            </field>
+                        </group>
+
+                        <!-- Packages Section -->
+                        <group>
+                            <field name="package_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="price"/>
+                                    <field name="duration"/>
+                                </list>
+                            </field>
+                        </group>
+                        
+                        <group>
+                            <button name="action_view_appointments" type="object" string="View All Appointments" class="oe_highlight"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- list View for Customers -->
+        <record id="view_beauty_customer_list" model="ir.ui.view">
+            <field name="name">beauty.customer.list</field>
+            <field name="model">beauty.customer</field>
+            <field name="arch" type="xml">
+                <list string="Beauty Salon Customers">
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="date_of_birth"/>
+                    <field name="gender"/>
+                    <field name="appointment_count" readonly="1"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Action to open customers in the list view -->
+        <record id="action_beauty_customer" model="ir.actions.act_window">
+            <field name="name">Beauty Salon Customers</field>
+            <field name="res_model">beauty.customer</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_beauty_customer_list"/>
+        </record>
+
+    </data>
+</odoo>
